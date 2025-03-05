@@ -1,0 +1,21 @@
+<mvc:View controllerName="com.ram.phaseone.controller.Phaseone"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+    <content>
+    <VBox>
+    <Button id="manualTriggerButton1" text="Manual Trigger1" press="onManualTriggerone" class="sapUiTinyMarginBegin sapUiTinyMarginTop">
+      </Button>
+    </VBox>
+    <VBox>
+     <Button id="manualTriggerButton2" text="Manual Trigger2" press="onManualTriggertwo" class="sapUiTinyMarginBegin sapUiTinyMarginTop">
+      </Button>
+    </VBox>
+
+    <VBox>
+      <Button id="manualTriggerButton3" text="Manual Trigger3" press="onManualTriggerthree" class="sapUiTinyMarginBegin sapUiTinyMarginTop">
+      </Button>
+    </VBox>
+    </content>
+    </Page>
+</mvc:View>
