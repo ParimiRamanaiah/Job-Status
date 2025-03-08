@@ -90,16 +90,33 @@ sap.ui.define([
           this.getView().setModel(oJobStatusModel, "jobStatusModel");
 
           // Function to update button state based on job status
-          var updateButtonState = (index, buttonId) => {
+          var updateButtonState = (index, buttonId,iconId,idText) => {
               var data = oJobStatusModel.getData();
-              console.log(data);
+              //console.log(data);
               if (data && data.results.length > 0) {
                   var jobStatus = data.results[index].status;
+                  var jobName = data.results[index].name;
                   var manualTriggerButton = this.getView().byId(buttonId);
+                  var icon = this.getView().byId(iconId);
+                  var text=this.getView().byId(idText);
                   if (jobStatus === 'running') {
                       manualTriggerButton.setEnabled(false);
-                  } else {
+                      icon.setSrc("sap-icon://in-progress");
+                      icon.setSize("1rem");
+                      icon.setColor("#FF0000");
+                      icon.setVisible(true);
+                      text.setText(jobName);
+                  } else if(jobStatus==="completed"){
                       manualTriggerButton.setEnabled(true);
+                      icon.setSrc("sap-icon://complete");
+                      icon.setSize("1rem");
+                      icon.setColor("#00FF00");
+                      icon.setVisible(true);
+                      text.setText(jobName);
+                  }
+                  else{
+                    icon.setVisible(false);
+                    text.setText("");
                   }
               } else {
                   console.log("Job status data is not available.");
@@ -110,9 +127,9 @@ sap.ui.define([
           oModel.read("/jobStatus", {
               success: (oData) => {
                   oJobStatusModel.setData(oData);
-                  updateButtonState(0, "manualTriggerButton1");
-                  updateButtonState(1, "manualTriggerButton2");
-                  updateButtonState(2, "manualTriggerButton3");
+                  updateButtonState(0, "manualTriggerButton1","idIcon1","idText1");
+                  updateButtonState(1, "manualTriggerButton2","idIcon2","idText2");
+                  updateButtonState(2, "manualTriggerButton3","idIcon3","idText3");
               }
           });
 
@@ -121,9 +138,9 @@ sap.ui.define([
               oModel.read("/jobStatus", {
                   success: (oData) => {
                       oJobStatusModel.setData(oData);
-                      updateButtonState(0, "manualTriggerButton1");
-                      updateButtonState(1, "manualTriggerButton2");
-                      updateButtonState(2, "manualTriggerButton3");
+                      updateButtonState(0, "manualTriggerButton1","idIcon1","idText1");
+                      updateButtonState(1, "manualTriggerButton2","idIcon2","idText2");
+                      updateButtonState(2, "manualTriggerButton3","idIcon3","idText3");
                   }
               });
           }, 5000);
@@ -144,16 +161,33 @@ sap.ui.define([
             //     }
 
             onManualTriggerone: function () {
+                var sServiceUrl = "/odata/v2/user/";
+                var oModel = new sap.ui.model.odata.v2.ODataModel(sServiceUrl, true);
+                this.getView().setModel(oModel);
+                oModel.read("/fetchJob", {
+                });
+
                 console.log("Success! one");
             },
       
             onManualTriggertwo: function () {
+                var sServiceUrl = "/odata/v2/user/";
+                var oModel = new sap.ui.model.odata.v2.ODataModel(sServiceUrl, true);
+                this.getView().setModel(oModel);
+                oModel.read("/letterJob", {
+                });
+
                 console.log("Success! two");
             },
       
             onManualTriggerthree: function () {
+                var sServiceUrl = "/odata/v2/user/";
+                var oModel = new sap.ui.model.odata.v2.ODataModel(sServiceUrl, true);
+                this.getView().setModel(oModel);
+                oModel.read("/reportJob", {
+                });
+
                 console.log("Success! three");
-            }
-      
+            },
     });
 });

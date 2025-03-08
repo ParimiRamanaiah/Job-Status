@@ -1,3 +1,5 @@
+using {job as master} from '../db/schema';
+
 service UserService{
 
         // entity JobStatus {
@@ -7,6 +9,14 @@ service UserService{
 
         // }
 
+        entity JobAuditLog as projection on master.JobAuditLog;
+
 function jobStatus() returns array of {};
+
+function fetchJob() returns array of {};
+
+function letterJob() returns array of {};
+
+function reportJob() returns array of {};
 
 }

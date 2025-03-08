@@ -1,21 +1,47 @@
 <mvc:View controllerName="com.ram.phaseone.controller.Phaseone"
     xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.m">
+    xmlns="sap.m"
+    xmlns:Icon="sap.ui.core">
     <Page id="page" title="{i18n>title}">
     <content>
+    <Panel headerText="Manual Trigger Buttons" class="sapUiSmallMarginTop">
+    <content>
+    <FlexBox justifyContent="End">
+            <Text text="Job-Status:" class="jobState"/>
+            <Icon:Icon src="sap-icon://in-progress" size="1rem" color="#FF0000" class="sapUiSmallMarginBegin"/>
+            <Text text="In Progress" class="sapMH6FontSize sapUiTinyMarginBegin"/>
+            <Icon:Icon src="sap-icon://complete" size="1rem" color="#00FF00" class="sapUiSmallMarginBegin"/>
+            <Text text="Completed" class="sapMH6FontSize sapUiTinyMarginBegin"/>
+            </FlexBox>
+        </content>
     <VBox>
-    <Button id="manualTriggerButton1" text="Manual Trigger1" press="onManualTriggerone" class="sapUiTinyMarginBegin sapUiTinyMarginTop">
+    <HBox>
+    <Button id="manualTriggerButton1" text="Manual Trigger1" press="onManualTriggerone" class="sapUiTinyMarginBegin sapUiTinyMarginTop" icon="sap-icon://action" type="Attention">
       </Button>
+      <Icon:Icon id="idIcon1" visible="false"  class="sapUiTinyMarginBegin sapUiSmallMarginTop" src="" color="" size="">
+      </Icon:Icon>
+      <Text id="idText1" text="" class="jobState"></Text>
+       </HBox>
     </VBox>
     <VBox>
-     <Button id="manualTriggerButton2" text="Manual Trigger2" press="onManualTriggertwo" class="sapUiTinyMarginBegin sapUiTinyMarginTop">
+     <HBox>
+    <Button id="manualTriggerButton2" text="Manual Trigger2" press="onManualTriggertwo" class="sapUiTinyMarginBegin sapUiTinyMarginTop" icon="sap-icon://action" type="Attention">
       </Button>
+      <Icon:Icon id="idIcon2" visible="false"  class="sapUiTinyMarginBegin sapUiSmallMarginTop" src="" color="" size="">
+      </Icon:Icon>
+      <Text id="idText2" text="" class="jobState"></Text>
+       </HBox>
     </VBox>
-
     <VBox>
-      <Button id="manualTriggerButton3" text="Manual Trigger3" press="onManualTriggerthree" class="sapUiTinyMarginBegin sapUiTinyMarginTop">
+       <HBox>
+    <Button id="manualTriggerButton3" text="Manual Trigger3" press="onManualTriggerthree" class="sapUiTinyMarginBegin sapUiTinyMarginTop" icon="sap-icon://action" type="Attention">
       </Button>
+      <Icon:Icon id="idIcon3" visible="false"  class="sapUiTinyMarginBegin sapUiSmallMarginTop" src="" color="" size="">
+      </Icon:Icon>
+      <Text id="idText3" text="" class="jobState"></Text>
+       </HBox>
     </VBox>
+    </Panel>
     </content>
     </Page>
 </mvc:View>
