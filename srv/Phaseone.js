@@ -206,10 +206,10 @@ schedule.scheduleJob('50 17 * * *', async () => {
         //     status:status
         // });
 
-        INSERT.into (JobAuditLog) .columns (
+        await INSERT.into (JobAuditLog) .columns (
             'ID', 'jobName', 'triggeredBy', 'triggeredOn','status'
          ) .values (
-            1, 'FetchResignation', 'Parimi Ramanaiah', '2025-03-09','Success'
+            2, 'FetchResignation', 'Parimi Ramanaiah', '2025-03-10','Success'
          )
 
         // const [data]=SELECT.from(JobAuditLog);
@@ -237,6 +237,13 @@ schedule.scheduleJob('50 17 * * *', async () => {
                 job.name='Manual'
             }
             console.log("Completed manual job");
+
+            await INSERT.into (JobAuditLog) .columns (
+                'ID', 'jobName', 'triggeredBy', 'triggeredOn','status'
+             ) .values (
+                3, 'Releiving Letter', 'Viswanath Naragunde', '2025-03-10','Success'
+             )
+
         }, 3 * 60 * 1000);
     } catch (error) {
         console.error("Error in manual job:", error);
@@ -259,6 +266,13 @@ schedule.scheduleJob('50 17 * * *', async () => {
                 job.name='Manual'
             }
             console.log("Completed manual job");
+
+            await INSERT.into (JobAuditLog) .columns (
+                'ID', 'jobName', 'triggeredBy', 'triggeredOn','status'
+             ) .values (
+                4, 'Report', 'Lakshmikanth B', '2025-03-10','Success'
+             )
+
         }, 3 * 60 * 1000);
     } catch (error) {
         console.error("Error in manual job:", error);
