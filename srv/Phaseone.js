@@ -80,11 +80,33 @@ module.exports = cds.service.impl(async function () {
     // const cust_LastModifiedBy = '61094444';
 
     // Generate a unique identifier using date, user ID, and a random number
-    const uniqueId = `${year}${month}${day}-${cust_LastModifiedBy}-${Math.floor(Math.random() * 10000)}`;
+    //const uniqueId = `${year}${month}${day}-${cust_LastModifiedBy}-${Math.floor(Math.random() * 10000)}`;
 
+    //const externalCode = uniqueId;
+
+    //console.log(externalCode);
+
+    const cust_LastRunTime = new Date();
+    console.log("cust_LastRunTime", cust_LastRunTime);
+
+    const year =cust_LastRunTime.getFullYear();
+    const month = String(cust_LastRunTime.getMonth() + 1).padStart(2, '0');
+    const day = String(cust_LastRunTime.getDate()).padStart(2, '0');
+    const effectiveStartDate = `${day}/${month}/${year}`;
+    console.log("effectiveStartDate", effectiveStartDate);
+
+    const cust_LastModifiedBy = "61094444";
+    console.log("cust_LastModifiedBy", cust_LastModifiedBy);
+
+    // Get the current time in hh:mm format
+    const hours = String(cust_LastRunTime.getHours()).padStart(2, '0');
+    const minutes = String(cust_LastRunTime.getMinutes()).padStart(2, '0');
+    const time = `${hours}:${minutes}`;
+
+    // Generate a unique identifier using date, user ID, and the current time
+    const uniqueId = `${year}${month}${day}-${cust_LastModifiedBy}-${time}`;
     const externalCode = uniqueId;
-
-    console.log(externalCode);
+    console.log("externalCode", externalCode);
 
     const { JobAuditLog } = this.entities;
 
