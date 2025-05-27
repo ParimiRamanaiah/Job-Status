@@ -184,7 +184,7 @@ module.exports = cds.service.impl(async function () {
         }
     });
 
-    // Immediate job for testing
+    //Immediate job for testing
     //    const now = new Date();
     //    now.setMinutes(now.getMinutes() + 2); // 2 minutes from now
     //    schedule.scheduleJob(now, async () => {
@@ -242,11 +242,11 @@ module.exports = cds.service.impl(async function () {
                 //     status:status
                 // });
 
-                await INSERT.into(JobAuditLog).columns(
-                    'ID', 'jobName', 'triggeredBy', 'triggeredOn', 'status'
-                ).values(
-                    2, 'FetchResignation', 'Parimi Ramanaiah', '2025-03-10', 'Success'
-                )
+                // await INSERT.into(JobAuditLog).columns(
+                //     'ID', 'jobName', 'triggeredBy', 'triggeredOn', 'status'
+                // ).values(
+                //     2, 'FetchResignation', 'Parimi Ramanaiah', '2025-03-10', 'Success'
+                // )
 
                 // const [data]=SELECT.from(JobAuditLog);
                 // console.log(data);
@@ -274,11 +274,11 @@ module.exports = cds.service.impl(async function () {
                 }
                 console.log("Completed manual job");
 
-                await INSERT.into(JobAuditLog).columns(
-                    'ID', 'jobName', 'triggeredBy', 'triggeredOn', 'status'
-                ).values(
-                    3, 'Releiving Letter', 'Viswanath Naragunde', '2025-03-10', 'Success'
-                )
+                // await INSERT.into(JobAuditLog).columns(
+                //     'ID', 'jobName', 'triggeredBy', 'triggeredOn', 'status'
+                // ).values(
+                //     3, 'Releiving Letter', 'Viswanath Naragunde', '2025-03-10', 'Success'
+                // )
 
             }, 3 * 60 * 1000);
         } catch (error) {
@@ -303,11 +303,11 @@ module.exports = cds.service.impl(async function () {
                 }
                 console.log("Completed manual job");
 
-                await INSERT.into(JobAuditLog).columns(
-                    'ID', 'jobName', 'triggeredBy', 'triggeredOn', 'status'
-                ).values(
-                    4, 'Report', 'Lakshmikanth B', '2025-03-10', 'Success'
-                )
+                // await INSERT.into(JobAuditLog).columns(
+                //     'ID', 'jobName', 'triggeredBy', 'triggeredOn', 'status'
+                // ).values(
+                //     4, 'Report', 'Lakshmikanth B', '2025-03-10', 'Success'
+                // )
 
             }, 3 * 60 * 1000);
         } catch (error) {
